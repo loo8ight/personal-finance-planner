@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sample Personal Finance Dashboard</title>
+  <style>
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #f7f8fa; color: #17202a; }
+    main { max-width: 1040px; margin: 0 auto; padding: 32px 20px; }
+    .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; }
+    .card { background: #fff; border: 1px solid #d9dee7; border-radius: 8px; padding: 18px; }
+    .span-4 { grid-column: span 4; }
+    .span-8 { grid-column: span 8; }
+    .span-12 { grid-column: span 12; }
+    .metric { font-size: 30px; font-weight: 700; margin-top: 6px; }
+    .muted { color: #667085; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { border-bottom: 1px solid #d9dee7; padding: 10px; text-align: left; }
+    @media (max-width: 800px) { .span-4, .span-8 { grid-column: span 12; } }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Sample Personal Finance Dashboard</h1>
+    <p class="muted">Updated: 2026-06-30 · Fictional sample</p>
+    <section class="grid">
+      <article class="card span-4">
+        <h2>Financial Health Score</h2>
+        <div class="metric">67 / 100</div>
+        <p>Watch</p>
+        <p class="muted">Not dangerous by itself; emergency fund and debt planning are the fastest improvement areas.</p>
+      </article>
+      <article class="card span-8">
+        <h2>Core Metrics</h2>
+        <p>Net worth: <strong>8,200,000 KRW</strong></p>
+        <p>Savings rate: <strong>19.5%</strong></p>
+        <p>Debt payment burden: <strong>11.7%</strong></p>
+        <p>Emergency fund: <strong>1.1 months</strong></p>
+      </article>
+      <article class="card span-12">
+        <h2>Asset Allocation</h2>
+        <table>
+          <thead><tr><th>Category</th><th>Amount</th><th>Share</th></tr></thead>
+          <tbody>
+            <tr><td>Cash and parking/CMA</td><td>3,500,000 KRW</td><td>20.1%</td></tr>
+            <tr><td>Deposits/savings</td><td>5,000,000 KRW</td><td>28.7%</td></tr>
+            <tr><td>Overseas ETF</td><td>6,500,000 KRW</td><td>37.4%</td></tr>
+            <tr><td>Pension savings</td><td>2,400,000 KRW</td><td>13.8%</td></tr>
+          </tbody>
+        </table>
+      </article>
+      <article class="card span-12">
+        <h2>90-Day Actions</h2>
+        <ol>
+          <li>Automate emergency fund savings after payday.</li>
+          <li>Cancel unused subscriptions and cap delivery spending.</li>
+          <li>Confirm National Pension, workplace retirement pension, loan terms, and insurance documents.</li>
+        </ol>
+      </article>
+    </section>
+    <p class="muted">Educational sample only. Variable Korean rules require current official confirmation.</p>
+  </main>
+</body>
+</html>

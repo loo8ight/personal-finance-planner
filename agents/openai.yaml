@@ -1,0 +1,4 @@
+interface:
+  display_name: "Personal Finance Planner"
+  short_description: "Personal finance planning workflows for Korean residents."
+  default_prompt: "Help me organize my finances."
