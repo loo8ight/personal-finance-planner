@@ -8,10 +8,10 @@ Use to generate a complete personal finance report from the current profile, bud
 2. Read `1-my-profile.md`, `2-my-budget.md`, and `3-my-plan.md` if available.
 3. Ask for missing critical values before calculating, but do not block on optional details.
 4. Generate a Markdown report in `shareable/`.
-5. Update `4-my-dashboard.html`.
-6. Generate PDF only if a safe local conversion path is available.
+5. Update `4-my-dashboard.html` or a shareable HTML report with infographic cards, score bars, allocation charts, budget/debt visuals, and a 90-day action timeline.
+6. Generate PDF from the HTML report only if a safe local conversion path is available.
 
-Use `scripts/generate_report.py` for Markdown and HTML when structured JSON input is available.
+Use `scripts/generate_report.py` for Markdown and HTML when structured JSON input is available. Add `--pdf` to attempt PDF conversion with a local Chrome or Edge headless browser. Use `scripts/html_to_pdf.py` for converting an existing HTML report.
 
 ## Report Sections
 
@@ -21,6 +21,7 @@ Use `scripts/generate_report.py` for Markdown and HTML when structured JSON inpu
 - Budget and cash flow
 - Debt strategy
 - Net worth and asset allocation
+- Visual charts: score donut, score breakdown bars, asset allocation donut, budget bars, debt burden bar, and 90-day timeline
 - Pension and retirement
 - Housing
 - Tax and insurance checks
@@ -29,4 +30,4 @@ Use `scripts/generate_report.py` for Markdown and HTML when structured JSON inpu
 
 ## Output Message
 
-Tell the user which files were created or updated. If PDF was not generated, say why and provide the Markdown/HTML alternatives.
+Tell the user which files were created or updated. If PDF was generated, provide its path. If PDF was not generated, say why and provide the Markdown/HTML alternatives.

@@ -13,7 +13,7 @@ A Claude Skill for personal budgeting, debt planning, investing, retirement plan
 - Reviews housing decisions
 - Flags tax and insurance items to check
 - Generates a financial health score
-- Creates Markdown and HTML reports
+- Creates visual Markdown, HTML, and optional PDF reports
 
 ## What It Does Not Do
 
@@ -64,7 +64,7 @@ Korean prompt:
 
 The bundled Python scripts use only the Python standard library. No external packages are required.
 
-PDF export is optional and depends on the local environment. Markdown and HTML reports are the default portable outputs.
+PDF export is optional and depends on the local environment. `scripts/generate_report.py --pdf` and `scripts/html_to_pdf.py` try to use a local Chrome or Edge headless browser to convert the visual HTML report to PDF. Markdown and HTML reports are the default portable outputs.
 
 ## License
 

@@ -4,7 +4,8 @@ description: >
   A personal finance planning Claude Skill for Korean residents. It helps with budgeting,
   cash flow, debt payoff, net worth tracking, investment allocation, retirement planning,
   FIRE planning, housing decisions, tax-aware planning, insurance/protection checks,
-  financial health scoring, dashboards, and monthly check-ins. Use this skill when users ask
+  financial health scoring, visual HTML dashboards/reports, optional PDF conversion,
+  and monthly check-ins. Use this skill when users ask
   for help with money, budgeting, saving, investing, debt, retirement, housing, taxes,
   insurance, or personal financial planning.
 ---
@@ -21,7 +22,7 @@ Provide structured educational analysis, calculations, checklists, and planning 
 
 Always make assumptions explicit. Separate facts from assumptions. Recommend that the user consult a qualified professional before major financial, investment, tax, legal, insurance, or housing decisions.
 
-Use Korean by default unless the user asks for another language. Keep the tone clear, calm, numeric, and action-oriented. Do not shame the user.
+Use English for internal analysis, calculation planning, and implementation notes when useful. All user-facing output must be Korean by default unless the user explicitly asks for another language. Keep the Korean output clear, calm, numeric, and action-oriented. Do not shame the user.
 
 ## Safety Rules
 
@@ -79,7 +80,7 @@ Create and maintain these files in the user's chosen work folder:
 - `1-my-profile.md`: household, income, spending, assets, debt, investments, insurance, pension, goals.
 - `2-my-budget.md`: monthly income, fixed costs, variable costs, savings rate, subscriptions, card spending, cash-flow actions.
 - `3-my-plan.md`: priorities, debt strategy, investment allocation, pension strategy, housing strategy, tax checks, 90-day plan.
-- `4-my-dashboard.html`: net worth, savings rate, debt, allocation, retirement readiness, financial health score.
+- `4-my-dashboard.html`: visual dashboard with net worth, savings rate, debt, allocation charts, retirement readiness, financial health score, and action infographics.
 - `check-ins/`: monthly check-in files named by date.
 - `shareable/`: Markdown, HTML, and optional PDF reports.
 - `README.txt`: short explanation of generated files.
@@ -151,7 +152,7 @@ Connect every score to practical actions. Avoid alarmist language.
 When the user asks for a full report, create:
 
 1. A Markdown report in `shareable/`.
-2. An updated `4-my-dashboard.html`.
-3. An optional PDF only if the local environment has a safe PDF conversion path. If not, provide Markdown and HTML and say PDF generation was not available.
+2. An updated visual HTML dashboard/report with infographic cards, bar charts, allocation charts, and 90-day action timeline.
+3. An optional PDF converted from the HTML report when Chrome, Edge, or another supported local headless browser is available. Use `scripts/generate_report.py --pdf` or `scripts/html_to_pdf.py`. If PDF conversion is unavailable, provide Markdown and HTML and say PDF generation was not available.
 
 Always include assumptions, limitations, and professional-consultation reminders in reports.

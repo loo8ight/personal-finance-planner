@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Personal Finance Planner Dashboard</title>
+  <title>개인 재무관리 대시보드</title>
   <style>
     :root {
       --bg: #f7f8fa;
@@ -11,8 +11,8 @@
       --ink: #17202a;
       --muted: #667085;
       --line: #d9dee7;
-      --green: #1f8a5b;
       --blue: #2563eb;
+      --green: #1f8a5b;
       --amber: #b7791f;
       --orange: #c2410c;
       --red: #b42318;
@@ -20,92 +20,71 @@
     * { box-sizing: border-box; }
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Malgun Gothic", sans-serif;
       background: var(--bg);
       color: var(--ink);
       line-height: 1.5;
     }
-    main {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 32px 20px;
-    }
-    header {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      align-items: end;
-      margin-bottom: 24px;
-    }
-    h1, h2, h3 { margin: 0; }
+    main { max-width: 1120px; margin: 0 auto; padding: 32px 20px; }
+    header { display: flex; justify-content: space-between; gap: 16px; align-items: end; margin-bottom: 24px; }
+    h1, h2, h3 { margin: 0; letter-spacing: 0; }
     h1 { font-size: 28px; }
     h2 { font-size: 18px; margin-bottom: 12px; }
     .muted { color: var(--muted); }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 16px;
-    }
-    .card {
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      padding: 18px;
-    }
+    .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; }
+    .card { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 18px; break-inside: avoid; }
     .span-3 { grid-column: span 3; }
     .span-4 { grid-column: span 4; }
+    .span-5 { grid-column: span 5; }
     .span-6 { grid-column: span 6; }
+    .span-7 { grid-column: span 7; }
     .span-8 { grid-column: span 8; }
     .span-12 { grid-column: span 12; }
-    .metric {
-      font-size: 30px;
-      font-weight: 700;
-      margin-top: 6px;
-    }
-    .score {
+    .metric { font-size: 28px; font-weight: 800; margin-top: 6px; }
+    .score-donut {
       display: grid;
       place-items: center;
-      width: 132px;
-      height: 132px;
+      width: 148px;
+      height: 148px;
       border-radius: 50%;
-      border: 12px solid var(--blue);
-      font-size: 30px;
-      font-weight: 800;
+      background: conic-gradient(var(--score-color, var(--blue)) var(--score-percent, 0%), #e5e7eb 0);
       margin: 10px auto;
     }
-    .bar {
-      height: 12px;
-      background: #edf0f5;
-      border-radius: 999px;
-      overflow: hidden;
-      margin: 8px 0 14px;
+    .score-inner {
+      width: 104px;
+      height: 104px;
+      border-radius: 50%;
+      background: white;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      font-size: 26px;
+      font-weight: 800;
     }
-    .bar > span {
-      display: block;
-      height: 100%;
-      background: var(--blue);
-      width: var(--value, 0%);
+    .bar { height: 12px; background: #edf0f5; border-radius: 999px; overflow: hidden; margin: 8px 0 14px; }
+    .bar > span { display: block; height: 100%; background: var(--blue); width: var(--value, 0%); }
+    .donut {
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      background: conic-gradient({{allocation_gradient}});
+      margin: 8px auto 12px;
     }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 14px;
-    }
-    th, td {
-      border-bottom: 1px solid var(--line);
-      padding: 10px 8px;
-      text-align: left;
-    }
-    th { color: var(--muted); font-weight: 600; }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    th, td { border-bottom: 1px solid var(--line); padding: 10px 8px; text-align: left; }
+    th { color: var(--muted); font-weight: 700; }
+    .timeline { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .step { border-left: 4px solid var(--blue); background: #f8fafc; padding: 12px; border-radius: 8px; }
     .actions li { margin-bottom: 8px; }
-    footer {
-      margin-top: 24px;
-      color: var(--muted);
-      font-size: 13px;
-    }
+    footer { margin-top: 24px; color: var(--muted); font-size: 13px; }
     @media (max-width: 840px) {
       header { display: block; }
-      .span-3, .span-4, .span-6, .span-8 { grid-column: span 12; }
+      .span-3, .span-4, .span-5, .span-6, .span-7, .span-8 { grid-column: span 12; }
+      .timeline { grid-template-columns: 1fr; }
+    }
+    @media print {
+      body { background: white; }
+      main { padding: 18px; }
     }
   </style>
 </head>
@@ -113,78 +92,69 @@
   <main>
     <header>
       <div>
-        <h1>Personal Finance Planner Dashboard</h1>
-        <p class="muted">Updated: {{updated_date}}</p>
+        <h1>개인 재무관리 대시보드</h1>
+        <p class="muted">작성일: {{updated_date}} · 통화: KRW</p>
       </div>
-      <div class="muted">Currency: KRW</div>
+      <div class="muted">정보 제공 / 교육 목적</div>
     </header>
 
     <section class="grid">
-      <article class="card span-4">
-        <h2>Financial Health Score</h2>
-        <div class="score">{{score}}</div>
+      <article class="card span-5">
+        <h2>재무 건강점수</h2>
+        <div class="score-donut" style="--score-color: {{score_color}}; --score-percent: {{score_percent}}">
+          <div class="score-inner">{{score}}<br><span class="muted">/100</span></div>
+        </div>
         <p><strong>{{grade}}</strong></p>
         <p class="muted">{{score_note}}</p>
       </article>
 
-      <article class="card span-8">
-        <h2>Core Metrics</h2>
+      <article class="card span-7">
+        <h2>핵심 지표</h2>
         <div class="grid">
-          <div class="span-3">
-            <div class="muted">Net Worth</div>
-            <div class="metric">{{net_worth}}</div>
-          </div>
-          <div class="span-3">
-            <div class="muted">Savings Rate</div>
-            <div class="metric">{{savings_rate}}</div>
-          </div>
-          <div class="span-3">
-            <div class="muted">Debt Burden</div>
-            <div class="metric">{{debt_burden}}</div>
-          </div>
-          <div class="span-3">
-            <div class="muted">Emergency Fund</div>
-            <div class="metric">{{emergency_months}}</div>
-          </div>
+          <div class="span-3"><div class="muted">순자산</div><div class="metric">{{net_worth}}</div></div>
+          <div class="span-3"><div class="muted">저축률</div><div class="metric">{{savings_rate}}</div></div>
+          <div class="span-3"><div class="muted">부채상환 부담</div><div class="metric">{{debt_burden}}</div></div>
+          <div class="span-3"><div class="muted">비상금</div><div class="metric">{{emergency_months}}</div></div>
         </div>
       </article>
 
       <article class="card span-6">
-        <h2>Score Breakdown</h2>
-        <p>Cash Flow <span class="muted">{{cash_flow_points}} / 20</span></p>
+        <h2>점수 영역별 막대그래프</h2>
+        <p>현금흐름 / 예산 <span class="muted">{{cash_flow_points}} / 20</span></p>
         <div class="bar"><span style="--value: {{cash_flow_percent}}"></span></div>
-        <p>Debt Stability <span class="muted">{{debt_points}} / 20</span></p>
+        <p>부채 안정성 <span class="muted">{{debt_points}} / 20</span></p>
         <div class="bar"><span style="--value: {{debt_percent}}"></span></div>
-        <p>Emergency & Protection <span class="muted">{{protection_points}} / 15</span></p>
+        <p>비상금 / 보호장치 <span class="muted">{{protection_points}} / 15</span></p>
         <div class="bar"><span style="--value: {{protection_percent}}"></span></div>
-        <p>Investment Allocation <span class="muted">{{investment_points}} / 15</span></p>
+        <p>투자 / 자산배분 <span class="muted">{{investment_points}} / 15</span></p>
         <div class="bar"><span style="--value: {{investment_percent}}"></span></div>
-        <p>Retirement Readiness <span class="muted">{{retirement_points}} / 15</span></p>
+        <p>연금 / 은퇴준비 <span class="muted">{{retirement_points}} / 15</span></p>
         <div class="bar"><span style="--value: {{retirement_percent}}"></span></div>
-        <p>Housing, Tax, Systems <span class="muted">{{systems_points}} / 15</span></p>
+        <p>주거 / 세금 / 제도활용 <span class="muted">{{systems_points}} / 15</span></p>
         <div class="bar"><span style="--value: {{systems_percent}}"></span></div>
       </article>
 
       <article class="card span-6">
-        <h2>Asset Allocation</h2>
+        <h2>자산배분 차트</h2>
+        <div class="donut" aria-label="자산배분 도넛 차트"></div>
         <table>
-          <thead><tr><th>Category</th><th>Amount</th><th>Share</th></tr></thead>
-          <tbody>
-            {{allocation_rows}}
-          </tbody>
+          <thead><tr><th>구분</th><th>금액</th><th>비중</th></tr></thead>
+          <tbody>{{allocation_rows}}</tbody>
         </table>
       </article>
 
       <article class="card span-12">
-        <h2>90-Day Actions</h2>
-        <ol class="actions">
-          {{action_items}}
-        </ol>
+        <h2>90일 실행 타임라인</h2>
+        <div class="timeline">
+          <div class="step"><h3>1-30일</h3><ol class="actions">{{action_items_30}}</ol></div>
+          <div class="step"><h3>31-60일</h3><ol class="actions">{{action_items_60}}</ol></div>
+          <div class="step"><h3>61-90일</h3><ol class="actions">{{action_items_90}}</ol></div>
+        </div>
       </article>
     </section>
 
     <footer>
-      This dashboard is for educational planning support only and is not financial, investment, tax, legal, insurance, or real-estate advice. Variable Korean rules require current official confirmation.
+      이 대시보드는 정보 제공과 교육 목적입니다. 금융, 투자, 세무, 법률, 보험, 부동산 자문이 아니며, 변동 가능한 한국 제도는 공식 자료와 전문가 상담으로 확인해야 합니다.
     </footer>
   </main>
 </body>

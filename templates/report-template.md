@@ -1,96 +1,106 @@
-# Personal Finance Planner Report
+# 개인 재무관리 리포트
 
-- Prepared:
-- Currency: KRW
-- Residency context:
-- Report purpose:
+- 작성일:
+- 통화: KRW
+- 거주 기준:
+- 리포트 목적:
 
-## 1. Executive Summary
+## 1. 요약
 
-- Current situation:
-- Financial Health Score:
-- First priority:
-- 90-day focus:
+- 현재 상황:
+- 재무 건강점수:
+- 첫 번째 우선순위:
+- 90일 집중 과제:
 
-## 2. Assumptions And Data Gaps
+## 2. 가정과 누락 데이터
 
-### Confirmed Facts
-
-- 
-
-### Assumptions
+### 확인된 사실
 
 - 
 
-### Missing Data
+### 사용한 가정
 
 - 
 
-## 3. Financial Health Score
+### 추가로 필요한 데이터
 
-| Area | Points | Notes |
+- 
+
+## 3. 재무 건강점수
+
+| 영역 | 점수 | 메모 |
 |---|---:|---|
-| Cash flow and budgeting |  / 20 |  |
-| Debt stability |  / 20 |  |
-| Emergency fund and protection |  / 15 |  |
-| Investment and allocation |  / 15 |  |
-| Pension and retirement readiness |  / 15 |  |
-| Housing, tax, and system usage |  / 15 |  |
-| Total |  / 100 |  |
+| 현금흐름 / 예산 관리 |  / 20 |  |
+| 부채 안정성 |  / 20 |  |
+| 비상금 / 보호장치 |  / 15 |  |
+| 투자 / 자산배분 |  / 15 |  |
+| 연금 / 은퇴준비 |  / 15 |  |
+| 주거 / 세금 / 제도활용 |  / 15 |  |
+| 합계 |  / 100 |  |
 
-## 4. Budget And Cash Flow
+## 4. 예산과 현금흐름
 
-- Monthly income:
-- Monthly spending:
-- Savings rate:
-- Fixed-cost pressure:
-- Cash-flow actions:
+- 월 소득:
+- 월 지출:
+- 저축률:
+- 고정비 부담:
+- 현금흐름 액션:
 
-## 5. Debt Strategy
+## 5. 부채 전략
 
-- Total debt:
-- Monthly debt payments:
-- Preferred payoff method:
-- High-risk debts:
-- 90-day actions:
+- 총부채:
+- 월 부채상환액:
+- 우선 상환 방식:
+- 고위험 부채:
+- 90일 액션:
 
-## 6. Net Worth And Asset Allocation
+## 6. 순자산과 자산배분
 
-- Total assets:
-- Total liabilities:
-- Net worth:
-- Liquid assets:
-- Risk assets:
-- Concentration notes:
+- 총자산:
+- 총부채:
+- 순자산:
+- 유동자산:
+- 위험자산:
+- 집중 리스크:
 
-## 7. Pension And Retirement
+## 7. 시각화 항목
 
-- National Pension:
-- Pension savings/IRP/workplace pension:
-- Expected retirement spending:
-- Gap estimate:
-- Additional monthly saving estimate:
+HTML 리포트에는 다음 시각화를 포함한다.
 
-## 8. Housing
+- 재무 건강점수 도넛 차트
+- 영역별 점수 막대그래프
+- 월 소득/지출/잉여금 막대그래프
+- 자산배분 도넛 차트
+- 90일 실행 타임라인
 
-- Current housing:
-- Decision under review:
-- Cash-flow impact:
-- Loan/cheongyak/policy checks:
+## 8. 연금과 은퇴
 
-## 9. Tax And Insurance Checks
+- 국민연금:
+- 연금저축/IRP/퇴직연금:
+- 예상 은퇴 생활비:
+- 부족 자금:
+- 월 추가 저축 추정:
 
-- Employee/freelancer/business tax:
-- Financial income/overseas stock:
-- Pension tax-credit checks:
-- Insurance/protection:
+## 9. 주거
 
-## 10. 90-Day Action Plan
+- 현재 주거:
+- 검토 중인 선택지:
+- 현금흐름 영향:
+- 대출/청약/정책 확인 항목:
+
+## 10. 세금과 보험 체크
+
+- 직장인/프리랜서/사업자 세금:
+- 금융소득/해외주식:
+- 연금계좌 세액공제 확인:
+- 보험/보호장치:
+
+## 11. 90일 실행 계획
 
 1. 
 2. 
 3. 
 
-## 11. Disclaimers
+## 12. 유의사항
 
-This report is for informational and educational planning support only. It is not financial, investment, tax, legal, insurance, or real-estate advice. Variable Korean rules require current official confirmation. Consult qualified professionals before making major decisions.
+이 리포트는 정보 제공과 교육 목적의 재무 정리 자료입니다. 금융, 투자, 세무, 법률, 보험, 부동산 자문이 아닙니다. 한국의 세금, 연금, 대출, 청약, 금융상품 관련 제도는 바뀔 수 있으므로 중요한 결정 전에는 공식 자료와 전문가 상담으로 확인하세요.
